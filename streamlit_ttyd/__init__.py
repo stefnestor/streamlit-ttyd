@@ -67,8 +67,8 @@ def terminal(
     flags = f"--port {port} "
     if exit_on_disconnect:
         flags += "--once "
-    if readonly:
-        flags += "--readonly"
+    if not readonly:
+        flags += "--writable"
     
     # check if user provided path to ttyd
     ttyd = get_ttyd() if ttyd=="" else ttyd
